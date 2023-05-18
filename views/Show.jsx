@@ -4,8 +4,9 @@ const Show = (props) => {
   const logs = props.logs;
   return (
     <div>
-        <h2>Behold!</h2>
-      <h4>{logs.title} {logs.entry}</h4>
+    
+      <h4>{logs.title}: </h4>
+      <p>{logs.entry}</p>
       <h3>{(logs.shipIsBroken)?'Ship is broken':'Ship aint broken'}</h3>
       <p><a href='/logs'>Go Back</a></p>
     </div>

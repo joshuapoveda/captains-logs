@@ -8,17 +8,17 @@ const Index = (props) => {
         Add new log <a href="/new">here</a>
       </h1>
       {logs.map((log) => {
-        console.log(log.id)
         return (
           <>
-            <h3>
-              {log.title} <a href={`/${log.id}`}>{log.entry}</a>
-            </h3>
+            <h3>{log.title}:</h3>
+            <p>
+              <a href={`/${log.id}`}>{log.entry}</a>
+            </p>
             <p>{log.shipIsBroken ? "ship is broken" : "ship is fine"}</p>
             <form action={`/${log.id}?_method=DELETE`} method="POST">
-                  <input type="submit" value="DELETE" />
-                </form>
-                <a href={`/${log.id}/edit`}>Edit Log</a>
+              <input type="submit" value="DELETE" />
+            </form>
+            <a href={`/${log.id}/edit`}>Edit Log</a>
             <br></br>
           </>
         );
