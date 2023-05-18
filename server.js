@@ -45,6 +45,16 @@ app.post("/logs", async (req, res) => {
   }
 });
 
+app.get("/:id", async (req, res) => {
+    try {
+      const foundById = await Logs.findById(req.params.id);
+      res.render("Show", { logs: foundById });
+    } catch (err) {
+      console.error(err);
+      res.status(500).send("An error occurred while fetching data");
+    }
+  });
+
 app.listen(port, () => {
   console.log(`server is listening on ${port}`);
 });
