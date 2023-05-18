@@ -4,7 +4,7 @@ const Edit = (props) => {
     const logs = props.logs
   return (
     <div>
-<form action={`/${logs.id}?_method=PUT`} method="POST">
+<form action={`${logs.id}?_method=PUT`} method="POST">
           title: <input type="text" name="title" defaultValue={logs.title}/><br/>
           Entry: <input type="text" name="entry"  defaultValue={logs.entry}/><br/>
           Is ship broken:
