@@ -2,7 +2,6 @@ import React from "react";
 
 const Show = (props) => {
   const logs = props.logs;
-  console.log(logs.shipIsBroken)
   return (
     <div>
         <h2>Behold!</h2>
