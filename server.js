@@ -41,6 +41,21 @@ app.delete("/:id", async (req, res) => {
   }
 });
 
+app.put("/:id", async (req, res) => {
+    if (req.body.shipIsBroken === "on") {
+      req.body.shipIsBroken = true;
+    } else {
+      req.body.shipIsBroken = false;
+    }
+    try {
+      await Logs.findByIdAndUpdate(req.params.id, req.body),
+        res.redirect(`${req.params.id}`);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send("An error occurred while fetching data");
+    }
+  });
+
 app.post("/logs", async (req, res) => {
   if (req.body.shipIsBroken === "on") {
     req.body.shipIsBroken = true;
@@ -49,6 +64,16 @@ app.post("/logs", async (req, res) => {
   }
   try {
     await Logs.create(req.body), res.redirect("/logs");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("An error occurred while fetching data");
+  }
+});
+
+app.get("/:id/edit", async (req, res) => {
+  try {
+    const foundById = await Logs.findById(req.params.id);
+    res.render("Edit", { logs: foundById });
   } catch (err) {
     console.error(err);
     res.status(500).send("An error occurred while fetching data");

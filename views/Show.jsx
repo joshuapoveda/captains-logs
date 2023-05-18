@@ -7,7 +7,7 @@ const Show = (props) => {
         <h2>Behold!</h2>
       <h4>{logs.title} {logs.entry}</h4>
       <h3>{(logs.shipIsBroken)?'Ship is broken':'Ship aint broken'}</h3>
-      <p><a href='/'>Go Back</a></p>
+      <p><a href='/logs'>Go Back</a></p>
     </div>
   );
 };
