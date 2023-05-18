@@ -35,7 +35,7 @@ router.put("/:id", async (req, res) => {
   }
   try {
     await Logs.findByIdAndUpdate(req.params.id, req.body),
-      res.redirect(`/${req.params.id}`);
+      res.redirect(`/logs/${req.params.id}`);
   } catch (err) {
     console.error(err);
     res.status(500).send("An error occurred while fetching data");
